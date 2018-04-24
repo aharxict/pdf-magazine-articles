@@ -7,3 +7,7 @@ Author: AHAPX
 License: GPL2
 */
 
+//require_once("options.php");
+require_once("issue.php");
+
+?>
