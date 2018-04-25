@@ -1,16 +1,20 @@
 <?php
 
-class issue {
+class Issue {
+
+	private $post_type = 'issue';
+
 	public function __construct()
 	{
 		add_action('init', array($this, 'register_issue_type'));
-
 		// подключаем функцию активации мета блока (my_extra_fields)
-		add_action('add_meta_boxes', array($this, 'extra_fields_issues'));
-
+		add_action('add_meta_boxes', array($this, 'add_extra_fields_issues'), 1);
+		add_action('save_post_issue', array($this, 'save_extra_fields_issues'), 0);
+		add_action( 'admin_print_footer_scripts', array( $this, 'show_assets' ), 10, 999 );
 	}
-	public function register_issue_type() {
-		register_post_type('issue', array(
+	public function register_issue_type()
+	{
+		register_post_type($this->post_type, array(
 			'label'  => null,
 			'labels' => array(
 				'name'               => 'Issues', // основное название для типа записи
@@ -50,17 +54,88 @@ class issue {
 		) );
 	}
 
-	public function extra_fields_issues() {
-		add_meta_box( 'extra_fields', 'Extra fields', array($this, 'extra_fields_box_func'), 'issue', 'normal', 'high'  );
+	public function add_extra_fields_issues()
+	{
+		add_meta_box( 'extra_fields', 'Extra issue parameters', array($this, 'extra_fields_box_func'), $this->post_type, 'normal', 'high'  );
 	}
-	public function extra_fields_box_func( $issue ){
+	public function extra_fields_box_func( $issue )
+	{
 		?>
-		<p><label><input type="text" name="extra[price]" value="<?php echo get_post_meta($issue->ID, 'price', 1); ?>" style="width:30%" /> Price </label></p>
-		<p><label><input type="text" name="extra[date]" value="<?php echo get_post_meta($issue->ID, 'date', 1); ?>" style="width:30%" /> Data </label></p>
+		<p class="box-title">Choose correct section</p>
+		<select name="extra[select]">
+				<?php $sel_v = get_post_meta(get_the_ID(), 'select', 1); ?>
+				<option value="1" <?php selected( $sel_v, '1' )?> >Editorial</option>
+				<option value="2" <?php selected( $sel_v, '2' )?> >Upfront</option>
+				<option value="3" <?php selected( $sel_v, '3' )?> >In My View</option>
+				<option value="4" <?php selected( $sel_v, '4' )?> >Feature</option>
+				<option value="5" <?php selected( $sel_v, '5' )?> >In Practice</option>
+		</select>
+		<?php
+//		$f = get_the_ID();
+//		var_dump($f);
+//		var_dump($_REQUEST['post']);
+		?>
 
 		<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
 		<?php
 	}
-}
+	public function save_extra_fields_issues( $post_id )
+	{
+//		if ( ! wp_verify_nonce( $_POST['extra_fields_nonce'], __FILE__ ) ) {
+//			return false;
+//		} // проверка
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return false;
+		} // выходим если это автосохранение
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return false;
+		} // выходим если юзер не имеет право редактировать запись
+		if ( ! isset( $_POST['extra'] ) ) {
+			return false;
+		} // выходим если данных нет
 
-$issue = new issue();
+		// Все ОК! Теперь, нужно сохранить/удалить данные
+		$_POST['extra'] = array_map( 'trim', $_POST['extra'] ); // чистим все данные от пробелов по краям
+		foreach ( $_POST['extra'] as $key => $value ) {
+			if ( empty( $value ) ) {
+				delete_post_meta( $post_id, $key ); // удаляем поле если значение пустое
+				continue;
+			}
+			update_post_meta( $post_id, $key, $value ); // add_post_meta() работает автоматически
+		}
+
+		return $post_id;
+	}
+
+	public function show_assets()
+	{
+		if ( is_admin() && get_current_screen()->id == $this->post_type ) {
+			$this->show_styles();
+			$this->show_scripts();
+		}
+	}
+	## Выводит на экран стили
+	public function show_styles()
+	{
+		?>
+		<style>
+			.box-title {
+				font-size: 18px;
+			}
+		</style>
+		<?php
+	}
+
+	## Выводит на экран JS
+	public function show_scripts()
+	{
+		?>
+		<script>
+			jQuery(document).ready(function ($) {
+
+			});
+		</script>
+		<?php
+	}
+
+}

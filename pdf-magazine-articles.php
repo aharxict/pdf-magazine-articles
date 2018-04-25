@@ -7,7 +7,12 @@ Author: AHAPX
 License: GPL2
 */
 
-//require_once("options.php");
-require_once("issue.php");
+require_once("pma_issue.php");
+require_once("pma_options.php");
+require_once("pma_posts_wp.php");
+
+$issue = new Issue();
+$options = new Options();
+$posts_wp = new Posts_wp();
 
 ?>
