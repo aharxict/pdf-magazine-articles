@@ -70,6 +70,8 @@ class Issue {
 				<option value="4" <?php selected( $sel_v, '4' )?> >Feature</option>
 				<option value="5" <?php selected( $sel_v, '5' )?> >In Practice</option>
 		</select>
+		<p class="box-title">Enter Issue №* <input type="text" name="extra[number]" required value="<?php echo get_post_meta(get_the_ID(), 'number', 1); ?>" style="width:10%" /></p>
+
 		<?php
 //		$f = get_the_ID();
 //		var_dump($f);
@@ -120,7 +122,7 @@ class Issue {
 		?>
 		<style>
 			.box-title {
-				font-size: 18px;
+				font-size: 16px;
 			}
 		</style>
 		<?php

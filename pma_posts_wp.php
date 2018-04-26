@@ -8,6 +8,7 @@ class Posts_wp {
 		add_action('add_meta_boxes', array($this, 'add_extra_fields_posts'), 1);
 		add_action('save_post_post', array($this, 'save_extra_fields_posts'), 0);
 		add_action( 'admin_print_footer_scripts', array( $this, 'show_assets' ), 10, 999 );
+		add_action("the_content", array( $this, 'show_bottom_post_section' ));
 
 	}
 	public function add_extra_fields_posts()
@@ -25,6 +26,7 @@ class Posts_wp {
 		<div class="attach-panel <?php echo ($mark_v == '1' ) ? 'filled' : 'unfilled' ?> ">
 			<p>Issues list:</p>
 			<select name="extra[select]">
+			<?php $sel_v = get_post_meta(get_the_ID(), 'select', 1); ?>
 
 			<?php
 		$issues_list = new WP_Query(array('post_type' => 'issue', 'posts_per_page' => -1, 'order' => 'DESC'));
@@ -33,7 +35,7 @@ class Posts_wp {
 				$id = get_post_thumbnail_id();
 				$post_id = get_the_ID();
 		?>
-		<option><?php echo get_the_title() . ' - ' . $post_id ?></option>
+		<option value="<?php echo $post_id?>" <?php selected( $sel_v, $post_id )?> ><?php echo get_the_title() . ' - ' . get_post_meta(get_the_ID(), 'number', 1) ?></option>
 		<?php
 		endwhile;
 		endif;
@@ -122,4 +124,17 @@ class Posts_wp {
 		</script>
 		<?php
 	}
+
+	public function show_bottom_post_section($content)
+	{
+		if  (is_single() && get_post_type() == 'post' && (get_post_meta(get_the_ID(), 'attach', 1) == '1') ) {
+			ob_start();
+			require_once( dirname( __FILE__ ) . '/templates/post-footer.php' );
+			$output = ob_get_clean();
+			return $content . $output;
+		} else {
+			return $content;
+		}
+	}
+
 }
