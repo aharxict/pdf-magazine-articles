@@ -10,9 +10,10 @@ License: GPL2
 require_once("pma_issue.php");
 require_once("pma_options.php");
 require_once("pma_posts_wp.php");
+require_once("pma_ajax.php");
 
 $issue = new Issue();
 $options = new Options();
 $posts_wp = new Posts_wp();
-
+$ajax_wp = new Ajax_wp();
 ?>

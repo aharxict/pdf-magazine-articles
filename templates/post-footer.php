@@ -1,10 +1,3 @@
-<?php
-
-//	$output = '';
-//	$output .= '<div class="post-footer"> POST FOOTER ';
-//	$output .= '</div>';
-
-?>
 <div class="post-footer-container">
 	<div class="inner">
 		<?php echo $attached_id = get_post_meta(get_the_ID(), 'select', 1);?>

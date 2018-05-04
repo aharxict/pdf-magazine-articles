@@ -3,3 +3,95 @@
     margin: 15px 0;
     text-align: center;
 }
+
+/*general*/
+.btn {
+    padding: 6px 12px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 14px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    transition: 0.3s;
+    display: block;
+}
+.btn:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+/*end general*/
+
+/*homepage*/
+#last-issue {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#last-issue .last-issue-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 15px 50px;
+    justify-content: flex-end;
+}
+#last-issue .subscribe {
+    margin-top: 15px;
+}
+.mh-home-1 .mh-posts-large-widget {
+    display: flex;
+}
+.mh-home-1 .mh-posts-large-widget > article {
+    flex-basis: 33%;
+}
+.mh-home-1 .mh-posts-large-item:first-child,
+.mh-home-1 .mh-posts-large-item {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0px 15px;
+}
+.mh-home-1 .mh-posts-large-item .issue-number {
+    margin-top: 25px;
+}
+.mh-home-1 .mh-posts-large-item .mh-posts-large-excerpt {
+    min-height: 120px;
+}
+.mh-home-2 .mh-posts-large-widget {
+    display: flex;
+    flex-wrap: wrap;
+}
+.mh-home-2 .mh-posts-large-widget > article {
+    flex-basis: 32%;
+}
+.mh-home-2 .mh-posts-large-item:first-child,
+.mh-home-2 .mh-posts-large-item {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.mh-home-2 .mh-posts-large-item {
+    margin-right: 2%;
+}
+.mh-home-2 .mh-posts-large-item:nth-child(3n) {
+    margin-right: 0px;
+}
+.mh-home-2 .mh-posts-large-item .mh-posts-large-excerpt {
+    min-height: 150px;
+}
+#load-more {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+/*end homepage*/
+
+/*blog*/
+#filter-row > div {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+/*end blog*/

@@ -35,7 +35,7 @@ class Posts_wp {
 				$id = get_post_thumbnail_id();
 				$post_id = get_the_ID();
 		?>
-		<option value="<?php echo $post_id?>" <?php selected( $sel_v, $post_id )?> ><?php echo get_the_title() . ' - ' . get_post_meta(get_the_ID(), 'number', 1) ?></option>
+		<option value="<?php echo $post_id?>" <?php selected( $sel_v, $post_id )?> ><?php echo get_post_meta(get_the_ID(), 'number', 1) . ' - ' . get_the_title(); ?></option>
 		<?php
 		endwhile;
 		endif;
