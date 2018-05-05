@@ -61,15 +61,15 @@ class Issue {
 	public function extra_fields_box_func( $issue )
 	{
 		?>
-		<p class="box-title">Choose correct section</p>
-		<select name="extra[select]">
-				<?php $sel_v = get_post_meta(get_the_ID(), 'select', 1); ?>
-				<option value="1" <?php selected( $sel_v, '1' )?> >Editorial</option>
-				<option value="2" <?php selected( $sel_v, '2' )?> >Upfront</option>
-				<option value="3" <?php selected( $sel_v, '3' )?> >In My View</option>
-				<option value="4" <?php selected( $sel_v, '4' )?> >Feature</option>
-				<option value="5" <?php selected( $sel_v, '5' )?> >In Practice</option>
-		</select>
+<!--		<p class="box-title">Choose correct section</p>-->
+<!--		<select name="extra[select]">-->
+<!--				--><?php //$sel_v = get_post_meta(get_the_ID(), 'select', 1); ?>
+<!--				<option value="1" --><?php //selected( $sel_v, '1' )?><!-- >Editorial</option>-->
+<!--				<option value="2" --><?php //selected( $sel_v, '2' )?><!-- >Upfront</option>-->
+<!--				<option value="3" --><?php //selected( $sel_v, '3' )?><!-- >In My View</option>-->
+<!--				<option value="4" --><?php //selected( $sel_v, '4' )?><!-- >Feature</option>-->
+<!--				<option value="5" --><?php //selected( $sel_v, '5' )?><!-- >In Practice</option>-->
+<!--		</select>-->
 		<p class="box-title">Enter Issue №* <input type="text" name="extra[number]" required value="<?php echo get_post_meta(get_the_ID(), 'number', 1); ?>" style="width:10%" /></p>
 
 		<?php

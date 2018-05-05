@@ -19,6 +19,15 @@ class Posts_wp {
 	{
 
 		?>
+		<p class="box-title">Choose correct section</p>
+		<select name="extra[section]">
+			<?php $sel_v = get_post_meta(get_the_ID(), 'section', 1); ?>
+			<option value="1" <?php selected( $sel_v, '1' )?> >Editorial</option>
+			<option value="2" <?php selected( $sel_v, '2' )?> >Upfront</option>
+			<option value="3" <?php selected( $sel_v, '3' )?> >In My View</option>
+			<option value="4" <?php selected( $sel_v, '4' )?> >Feature</option>
+			<option value="5" <?php selected( $sel_v, '5' )?> >In Practice</option>
+		</select>
 		<p>Do you want to attach this article to some issue? : <?php $mark_v = get_post_meta(get_the_ID(), 'attach', 1); ?>
 			<label><input id="add_attachment" type="radio" name="extra[attach]" value="1" <?php checked( $mark_v, '1' ); ?> /> Yes</label>
 			<label><input id="del_attachment" type="radio" name="extra[attach]" value="" <?php checked( $mark_v, '' ); ?> /> No</label>
