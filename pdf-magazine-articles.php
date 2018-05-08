@@ -11,6 +11,7 @@ require_once("pma_issue.php");
 require_once("pma_options.php");
 require_once("pma_posts_wp.php");
 require_once("pma_ajax.php");
+require_once("pma_page_template.php");
 
 $issue = new Issue();
 $options = new Options();

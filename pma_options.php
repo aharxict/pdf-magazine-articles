@@ -17,5 +17,8 @@ class Options {
 	}
 	function add_image_sizes() {
 		add_image_size('pma_title', 350, 500, array( 'center', 'center' ));
+		add_image_size('pma_post_footer', 200, 300, array( 'center', 'center' ));
+		add_image_size('pma_single_issue_post_footer', 120, 170, array( 'center', 'center' ));
+		add_image_size('pma_attached_article', 300, 200, array( 'center', 'center' ));
 	}
 }
