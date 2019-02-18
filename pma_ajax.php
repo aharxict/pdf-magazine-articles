@@ -38,7 +38,6 @@ class Ajax_wp {
 		//echo 'TEST';
 		wp_die();
 	}
-
 	function create_filter_query($posts_per_page, $tag = '0') {
 
 		$issue_number = $_POST['issue_number'];

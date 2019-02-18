@@ -31,8 +31,8 @@
 				$pdf_url = get_field('issue-pdf',$attached_id);
 			?>
 			<div class="pdf-link">
-				<h3 class="entry-title">Download
-					<a href="<?php echo $pdf_url;?>">PDF</a>
+				<h3 class="entry-title">
+					<a href="<?php echo $pdf_url;?>" target="_blank">Download</a> the latest issue of Biostart
 				</h3>
 			</div>
 			<?php

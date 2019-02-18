@@ -1,9 +1,13 @@
 /*PDF Magazine Articles admin css*/
+
 .post-footer-container {
     margin: 15px 0;
     text-align: center;
 }
-
+/*header.page-header > h1.page-title,*/
+/*header.entry-header > h1.entry-title {*/
+    /*padding-left: 15%;*/
+/*}*/
 /*general*/
 .btn {
     padding: 6px 12px;
@@ -25,11 +29,37 @@
     border-color: #adadad;
 }
 .issue-number {
-    margin-top: 25px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+.mh-footer .textwidget p {
+    margin-top: 5px;
+}
+.mh-footer .social {
+    display: flex;
+    justify-content: space-between;
+}
+.mh-footer .social a {
+    font-size: 40px;
+    margin-right: 5px;
+}
+article .social-sharing {
+    display: flex;
+    justify-content: flex-end;
+}
+.contact {
+    padding: 0 15px;
+}
+div.mh-site-logo {
+    padding: 5px;
 }
 /*end general*/
 
 /*homepage*/
+.home-header {
+    text-align: center;
+}
 #last-issue {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -40,10 +70,32 @@
     background-position: center;
     display: flex;
     padding: 15px 50px;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 #last-issue .subscribe {
-    margin-top: 15px;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    background: #3a425a;
+    color: #fff;
+    border-radius: 0;
+    border-width: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+#last-issue .subscribe:hover {
+    background-color: #ef4767;
+}
+#last-issue .last-issue-front-page {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.4);
+    display: flex;
+    flex-direction: column-reverse;
+}
+#last-issue .issue-number {
+    text-align: center;
+    color: #ef4767;
+    text-shadow: 2px 2px #3a425a;
+    font-size: 22px;
 }
 .mh-home-1 .mh-posts-large-widget {
     display: flex;
@@ -55,7 +107,7 @@
 .mh-home-1 .mh-posts-large-item {
     margin-top: 25px;
     margin-bottom: 25px;
-    padding: 0px 15px;
+    padding: 0 15px;
 }
 
 .mh-home-1 .mh-posts-large-item .mh-posts-large-excerpt {
@@ -77,7 +129,7 @@
     margin-right: 2%;
 }
 .mh-home-2 .mh-posts-large-item:nth-child(3n) {
-    margin-right: 0px;
+    margin-right: 0;
 }
 .mh-home-2 .mh-posts-large-item .mh-posts-large-excerpt {
     min-height: 150px;
@@ -87,6 +139,23 @@
     text-align: center;
     cursor: pointer;
     margin-bottom: 25px;
+}
+#load-more > div {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color:#3a425a ;
+}
+#load-more > div:hover {
+    background-color: #ef4767;
+}
+.adv-block img {
+    margin-bottom: 15px;
+}
+.adv-block {
+    text-align: center;
 }
 /*end homepage*/
 
@@ -102,7 +171,27 @@
     cursor: pointer;
     margin-bottom: 25px;
 }
-
+#blog-load-more > div {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color:#3a425a ;
+}
+#blog-load-more > div:hover {
+    background-color: #ef4767;
+}
+#issue_number,
+#post_section,
+#sort_date {
+    border: 1px solid transparent;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0.1);
+}
+.mh-loop-thumb {
+    margin-bottom: 20px;
+}
 /*end blog*/
 
 /*post-footer-container*/
@@ -128,12 +217,15 @@
     flex-basis: 70%;
     padding: 0 15px;
 }
+body.page .um .um-field-checkbox.active:not(.um-field-radio-state-disabled) i,
 .post-footer-container .content-block .um .um-field-checkbox.active:not(.um-field-radio-state-disabled) i {
     color: #3a425a;
 }
+input.um-button,
+a.um-button,
 .post-footer-container .um-button {
-    border-radius: 0px !important;
-    border: 0px !important;
+    border-radius: 0 !important;
+    border: 0 !important;
 }
 .post-footer-container .content-block .um-form .um-col-alt > .um-half {
     width: 50%;
@@ -144,23 +236,30 @@
 .post-footer-container .content-block .um-form .um-col-alt > .um-right {
     text-align: right;
 }
+body.page .um-form .um-col-alt > .um-half > a {
+    color: #fff !important;
+}
 .post-footer-container .content-block .um-form .um-col-alt > .um-half > input,
 .post-footer-container .content-block .um-form .um-col-alt > .um-half > a {
     width: 150px;
     color: #fff !important;
     font-weight: 700 !important;
 }
+body.page .um-form input#um-submit-btn,
 .post-footer-container .content-block .um-form .um-col-alt > .um-half > input {
     background-color: #3a425a;
 }
+body.page .um-form input#um-submit-btn:hover,
 .post-footer-container .content-block .um-form .um-col-alt > .um-half > input:hover {
     background-color: #ef4767;
 }
+body.page .um-form .um-col-alt > .um-half > a,
 .post-footer-container .content-block .um-form .um-col-alt > .um-half > a {
     margin-right: 0;
     margin-left: auto;
     background-color: #ef4767;
 }
+body.page .um-form .um-col-alt > .um-half > a:hover,
 .post-footer-container .content-block .um-form .um-col-alt > .um-half > a:hover {
     background-color: #3a425a;
 }
@@ -187,7 +286,7 @@
 }
 #main-content.mh-content.mh-issue {
     width: 100%;
-    margin-right: 0px;
+    margin-right: 0;
 }
 .issue-block .mh-excerpt {
     min-height: 150px;
@@ -214,7 +313,33 @@
     width: calc(100% / 3);
     float: left;
 }
-.content-single-issue .attached-articles-container .attached-article .attached-content{
+.content-single-issue .attached-articles-container .attached-article .attached-content {
     padding: 5px;
 }
+.content-single-issue .attached-articles-container .attached-article .attached-content a {
+    display: block;
+}
+.content-single-issue .attached-articles-container .attached-article .attached-content .entry-title a {
+    color: #3a425a;
+    font-size: 16px;
+
+}
+.content-single-issue .attached-articles-container .attached-article .attached-content .entry-title a:hover {
+    color: #ef4767;
+    text-decoration: none;
+}
 /*end single-issue*/
+
+/*about us*/
+.about-us {
+    /*padding: 0 15%;*/
+}
+.about-us p{
+    text-align: justify
+}
+.about-us .photos {
+    display: flex;
+    justify-content: space-around;
+    /*padding: 0 15%;*/
+}
+/*end about us*/
